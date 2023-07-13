@@ -1,0 +1,13 @@
+<div class="main-container">
+    <div class="password-container">
+        <h1>Password Strength Test</h1>
+        <div class="input-container" [formGroup]="inputGroup">
+            <input type="text" formControlName="password" (input)="passwordChange()">
+            <div class="sections-container">
+                <div class="section" [ngClass]="{'easy-pass':(sectionMode == 'easy' || !inputGroup.valid),'mid-pass':sectionMode == 'medium','strong-pass':sectionMode == 'hard'}"></div>
+                <div class="section" [ngClass]="{'easy-pass':!inputGroup.valid,'mid-pass':sectionMode == 'medium', 'strong-pass':sectionMode == 'hard'}"></div>
+                <div class="section" [ngClass]="{'easy-pass':!inputGroup.valid,'strong-pass':sectionMode == 'hard'}"></div>
+            </div>
+        </div>
+    </div>
+</div>
